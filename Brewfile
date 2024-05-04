@@ -7,13 +7,18 @@ brew "tree"
 
 # Terminal enhancements
 brew "vivid"
+brew "bat"
+
+# Search
+brew "ripgrep"
+brew "fzf"
 
 # Git
 brew "gh"
+brew "jesseduffield/lazygit/lazygit"
 
 # Neovim
 brew "neovim"
-brew "ripgrep"
 brew "tree-sitter"
 brew "luajit"
 
@@ -24,3 +29,10 @@ brew "vapor"
 
 # Rust
 brew "rust"
+
+# YAML
+brew "yq"
+
+# JSON
+brew "jq"
+brew "noahgorstein/tap/jqp"
