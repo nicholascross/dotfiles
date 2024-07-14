@@ -1,26 +1,36 @@
+# Exclude all directories by default
+/*
+
+# Re include any dotfile directory
+!.*
+
+.zsh/*/
+!.zsh/plugins/
+
 # System-specific files
 .DS_Store
 .Trash
 .zcompdump
 .zsh_history
 
-# Exclude all directories by default
-*/
-
-# Whitelist specific configuration directories and files
-!.config/
-!.zsh/
-!.zshrc
-!.zprofile
-
 # Ignore local and temporary files that are not shared
 .local/
+.cache/
+.cups/
+.docker/
+.swiftpm/
+.zsh_sessions/
 *.swp
 *~
 ._*
+.lesshst
+.config/iterm2
 
 # Ignore secrets and environment files
+.ssh/
 *.secrets
 *.keys
 .env
 
+# Files not applying to all systems
+.gitconfig
