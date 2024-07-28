@@ -35,3 +35,7 @@ brew "yq"
 # JSON
 brew "jq"
 brew "noahgorstein/tap/jqp"
+
+# Markdown
+
+brew "glow"
