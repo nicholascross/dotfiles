@@ -6,7 +6,6 @@ brew "gnu-sed"
 brew "tree"
 
 # Terminal enhancements
-brew "vivid"
 brew "bat"
 
 # Search
