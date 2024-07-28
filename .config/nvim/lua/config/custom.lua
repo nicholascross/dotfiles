@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 function CopyToClipboard()
   local start_line = vim.fn.line("'<")
   local end_line = vim.fn.line("'>")
