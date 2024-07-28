@@ -6,6 +6,7 @@
 
 .zsh/*/
 !.zsh/plugins/
+!cheatsheet/
 
 # System-specific files
 .DS_Store
