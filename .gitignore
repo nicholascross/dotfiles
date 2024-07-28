@@ -34,3 +34,4 @@
 
 # Files not applying to all systems
 .gitconfig
+.bash_history
