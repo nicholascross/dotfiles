@@ -20,6 +20,7 @@ brew "jesseduffield/lazygit/lazygit"
 brew "neovim"
 brew "tree-sitter"
 brew "luajit"
+brew "luarocks"
 
 # Swift
 brew "swiftformat"
