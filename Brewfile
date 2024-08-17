@@ -15,6 +15,7 @@ brew "fzf"
 # Git
 brew "gh"
 brew "jesseduffield/lazygit/lazygit"
+brew "git-delta"
 
 # Neovim
 brew "neovim"
@@ -26,6 +27,7 @@ brew "luarocks"
 brew "swiftformat"
 brew "swiftlint"
 brew "vapor"
+brew "xcbeautify"
 
 # Rust
 brew "rust"
