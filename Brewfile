@@ -7,6 +7,8 @@ brew "tree"
 
 # Terminal enhancements
 brew "bat"
+brew "tmux"
+brew "tmuxinator"
 
 # Search
 brew "ripgrep"
