@@ -15,6 +15,7 @@
 .zsh_history
 
 # Ignore local and temporary files that are not shared
+.zsh/local.zsh
 .local/
 .cache/
 .cups/
