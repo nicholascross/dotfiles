@@ -25,6 +25,9 @@ brew "tree-sitter"
 brew "luajit"
 brew "luarocks"
 
+# Node
+brew "nvm"
+
 # Swift
 brew "swiftformat"
 brew "swiftlint"
