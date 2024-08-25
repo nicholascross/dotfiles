@@ -27,6 +27,8 @@
 ._*
 .lesshst
 .config/iterm2
+.nvm/
+.tart/
 
 # Ignore secrets and environment files
 .ssh/
