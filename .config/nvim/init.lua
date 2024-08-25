@@ -18,7 +18,7 @@ require("lazy").setup("plugins", {
 })
 
 require("config.options")
-require("config.custom")
+require("config.pbcopy")
 require("config.keymaps")
 
 vim.cmd.colorscheme("tokyonight-storm")

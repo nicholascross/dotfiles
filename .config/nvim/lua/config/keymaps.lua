@@ -53,5 +53,8 @@ wk.add({
   { "<leader>bd", "<Cmd>BufferOrderByDirectory<CR>", desc = "Sort by directory" },
   { "<leader>bl", "<Cmd>BufferOrderByLanguage<CR>", desc = "Sort by language" },
   { "<leader>bw", "<Cmd>BufferOrderByWindowNumber<CR>", desc = "Sort by window number" },
+
+  { "<leader>y", ":lua CopyToClipboard()<CR>", desc = "Yank to system clipboard", mode = { "v" } }
+
 })
 
