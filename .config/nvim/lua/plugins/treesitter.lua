@@ -20,6 +20,7 @@ return {
         "make",
         "llvm",
         "json",
+        "swift",
       },
       matchup = { enable = true, },
       highlight = { enable = true },
