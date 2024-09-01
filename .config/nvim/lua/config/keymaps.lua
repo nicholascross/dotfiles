@@ -6,8 +6,12 @@ wk.add({
   { "<leader>f", group = "Telescope" },
   { "<leader>fb", builtin.buffers, desc = "Buffers" },
   { "<leader>ff", builtin.find_files, desc = "Find Files" },
-  { "<leader>fg", builtin.live_grep, desc = "Live Grep" },
-  { "<leader>fh", builtin.help_tags, desc = "Help Tags" },
+  { "<leader>fg", builtin.live_grep, desc = "Live Grep", icon="󰑑" },
+  { "<leader>fr", builtin.registers, desc = "Registers", icon="󱘢" },
+  { "<leader>fs", builtin.symbols, desc = "Symbols", icon="" },
+  { "<leader>ft", builtin.treesitter, desc = "Tree Sitter", icon="" },
+  { "<leader>fh", builtin.help_tags, desc = "Help Tags", icon="󰋖" },
+  { "<leader>fa", builtin.builtin, desc = "Telescope", icon="" },
 
   -- File management
   { "<space>-", require("oil").toggle_float, desc = "Open file browser" },
