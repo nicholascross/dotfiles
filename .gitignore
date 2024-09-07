@@ -29,6 +29,9 @@
 .config/iterm2
 .nvm/
 .tart/
+.vscode/
+.viminfo
+.npm/
 
 # Ignore secrets and environment files
 .ssh/
