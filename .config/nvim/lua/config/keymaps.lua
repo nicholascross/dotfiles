@@ -69,5 +69,16 @@ wk.add({
   { "gn", vim.lsp.buf.rename, desc = "LSP rename" },
   { "gr", vim.lsp.buf.references, desc = "LSP list references" },
   { "gs", vim.lsp.buf.signature_help, desc = "LSP signature help" },
+
+  -- Debug
+  { "<leader>d", group = "Debug", icon = "" },
+  { "<leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint", icon = "" },
+  { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>", desc = "Continue", icon = "" },
+  { "<leader>di", "<Cmd>lua require'dap'.step_into()<CR>", desc = "Step Into", icon = "" },
+  { "<leader>do", "<Cmd>lua require'dap'.step_over()<CR>", desc = "Step Over", icon = "" },
+  { "<leader>dO", "<Cmd>lua require'dap'.step_out()<CR>", desc = "Step Out", icon = "" },
+  { "<leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>", desc = "Open REPL", icon = "" },
+  { "<leader>dl", "<Cmd>lua require'dap'.run_last()<CR>", desc = "Run Last", icon = "ﰇ" },
+  { "<leader>du", "<Cmd>lua require'dapui'.toggle()<CR>", desc = "Toggle Dap UI", icon = "" },
 })
 
