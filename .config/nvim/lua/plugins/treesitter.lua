@@ -31,6 +31,8 @@ return {
         use_virtual_text = true,
         lint_events = {"BufWrite", "CursorHold" },
       },
+      -- Fix swift performance issue - https://github.com/alex-pinkus/tree-sitter-swift/issues/240#issuecomment-1859246690
+      indent = { enable = true, disable = { "swift", "text" } },
     }
   }
 }
