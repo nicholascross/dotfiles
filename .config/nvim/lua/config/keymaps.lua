@@ -15,6 +15,9 @@ wk.add({
   -- File management
   { "<leader>-", require("oil").toggle_float, desc = "Open file browser" },
 
+  -- Undo history
+  { "<leader>u", function() require("telescope").extensions.undo.undo({ side_by_side = true }) end, desc = "Open undo history" },
+
   -- Indentation
   { "<Tab>", ">>", mode = { "n" } },
   { "<S-Tab>", "<<", mode = { "n" } },
