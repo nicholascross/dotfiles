@@ -13,7 +13,7 @@ wk.add({
   { "<leader>fa", require('telescope.builtin').builtin, desc = "Telescope", icon="" },
 
   -- File management
-  { "<space>-", require("oil").toggle_float, desc = "Open file browser" },
+  { "<leader>-", require("oil").toggle_float, desc = "Open file browser" },
 
   -- Indentation
   { "<Tab>", ">>", mode = { "n" } },
