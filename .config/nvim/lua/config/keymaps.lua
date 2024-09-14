@@ -12,13 +12,6 @@ wk.add({
   { "<leader>fh", require('telescope.builtin').help_tags, desc = "Help Tags", icon="󰋖" },
   { "<leader>fa", require('telescope.builtin').builtin, desc = "Telescope", icon="" },
 
-  { "<leader>fd", group = "DAP", icon = "" },
-  { "<leader>fdc", require'telescope'.extensions.dap.commands, desc = "DAP Commands", icon="" },
-  { "<leader>fdf", require'telescope'.extensions.dap.configurations, desc = "DAP Configurations", icon="" },
-  { "<leader>fdb", require'telescope'.extensions.dap.list_breakpoints, desc = "List Breakpoints", icon="" },
-  { "<leader>fdv", require'telescope'.extensions.dap.variables, desc = "DAP Variables", icon="" },
-  { "<leader>fdf", require'telescope'.extensions.dap.frames, desc = "DAP Frames", icon="" },
-
   -- File management
   { "<space>-", require("oil").toggle_float, desc = "Open file browser" },
 
@@ -86,6 +79,13 @@ wk.add({
   { "<leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>", desc = "Open REPL", icon = "" },
   { "<leader>dl", "<Cmd>lua require'dap'.run_last()<CR>", desc = "Run Last", icon = "ﰇ" },
   { "<leader>du", "<Cmd>lua require'dapui'.toggle()<CR>", desc = "Toggle Dap UI", icon = "" },
+
+  { "<leader>fd", group = "DAP", icon = "" },
+  { "<leader>fdc", require'telescope'.extensions.dap.commands, desc = "DAP Commands", icon="" },
+  { "<leader>fdf", require'telescope'.extensions.dap.configurations, desc = "DAP Configurations", icon="" },
+  { "<leader>fdb", require'telescope'.extensions.dap.list_breakpoints, desc = "List Breakpoints", icon="" },
+  { "<leader>fdv", require'telescope'.extensions.dap.variables, desc = "DAP Variables", icon="" },
+  { "<leader>fdf", require'telescope'.extensions.dap.frames, desc = "DAP Frames", icon="" },
 
 })
 
