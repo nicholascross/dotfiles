@@ -1,17 +1,23 @@
 local wk = require("which-key")
-local builtin = require('telescope.builtin')
 
 wk.add({
   -- File browsing
-  { "<leader>f", group = "Telescope" },
-  { "<leader>fb", builtin.buffers, desc = "Buffers" },
-  { "<leader>ff", builtin.find_files, desc = "Find Files" },
-  { "<leader>fg", builtin.live_grep, desc = "Live Grep", icon="󰑑" },
-  { "<leader>fr", builtin.registers, desc = "Registers", icon="󱘢" },
-  { "<leader>fs", builtin.symbols, desc = "Symbols", icon="" },
-  { "<leader>ft", builtin.treesitter, desc = "Tree Sitter", icon="" },
-  { "<leader>fh", builtin.help_tags, desc = "Help Tags", icon="󰋖" },
-  { "<leader>fa", builtin.builtin, desc = "Telescope", icon="" },
+  { "<leader>f", group = "Telescope", icon="" },
+  { "<leader>fb", require('telescope.builtin').buffers, desc = "Buffers" },
+  { "<leader>ff", require('telescope.builtin').find_files, desc = "Find Files" },
+  { "<leader>fg", require('telescope.builtin').live_grep, desc = "Live Grep", icon="󰑑" },
+  { "<leader>fr", require('telescope.builtin').registers, desc = "Registers", icon="󱘢" },
+  { "<leader>fs", require('telescope.builtin').symbols, desc = "Symbols", icon="" },
+  { "<leader>ft", require('telescope.builtin').treesitter, desc = "Tree Sitter", icon="" },
+  { "<leader>fh", require('telescope.builtin').help_tags, desc = "Help Tags", icon="󰋖" },
+  { "<leader>fa", require('telescope.builtin').builtin, desc = "Telescope", icon="" },
+
+  { "<leader>fd", group = "DAP", icon = "" },
+  { "<leader>fdc", require'telescope'.extensions.dap.commands, desc = "DAP Commands", icon="" },
+  { "<leader>fdf", require'telescope'.extensions.dap.configurations, desc = "DAP Configurations", icon="" },
+  { "<leader>fdb", require'telescope'.extensions.dap.list_breakpoints, desc = "List Breakpoints", icon="" },
+  { "<leader>fdv", require'telescope'.extensions.dap.variables, desc = "DAP Variables", icon="" },
+  { "<leader>fdf", require'telescope'.extensions.dap.frames, desc = "DAP Frames", icon="" },
 
   -- File management
   { "<space>-", require("oil").toggle_float, desc = "Open file browser" },
@@ -80,5 +86,6 @@ wk.add({
   { "<leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>", desc = "Open REPL", icon = "" },
   { "<leader>dl", "<Cmd>lua require'dap'.run_last()<CR>", desc = "Run Last", icon = "ﰇ" },
   { "<leader>du", "<Cmd>lua require'dapui'.toggle()<CR>", desc = "Toggle Dap UI", icon = "" },
+
 })
 
