@@ -13,6 +13,7 @@ brew "tmuxinator"
 # Search
 brew "ripgrep"
 brew "fzf"
+brew "fd"
 
 # Git
 brew "gh"
