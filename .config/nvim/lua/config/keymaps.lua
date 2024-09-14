@@ -20,6 +20,9 @@ wk.add({
   -- Undo history
   { "<leader>u", function() require("telescope").extensions.undo.undo({ side_by_side = true }) end, desc = "Open undo history" },
 
+  -- Tmux Stle (Pane)Window navigation
+  { "<leader>q", require("custom.window_navigator").show_window_numbers, desc = "Navigate to window" },
+
   -- Indentation
   { "<Tab>", ">>", mode = { "n" } },
   { "<S-Tab>", "<<", mode = { "n" } },
