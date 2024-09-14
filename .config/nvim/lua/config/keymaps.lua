@@ -6,6 +6,7 @@ wk.add({
   { "<leader>fb", require('telescope.builtin').buffers, desc = "Buffers" },
   { "<leader>ff", require('telescope.builtin').find_files, desc = "Find Files" },
   { "<leader>fg", require('telescope.builtin').live_grep, desc = "Live Grep", icon="󰑑" },
+  { "<leader>fc", require("custom.live_grep_args_as_type").grep_word_under_cursor_same_type, desc = "Live Grep (same type)", icon="󰑑" },
   { "<leader>fr", require('telescope.builtin').registers, desc = "Registers", icon="󱘢" },
   { "<leader>fs", require('telescope.builtin').symbols, desc = "Symbols", icon="" },
   { "<leader>ft", require('telescope.builtin').treesitter, desc = "Tree Sitter", icon="" },
