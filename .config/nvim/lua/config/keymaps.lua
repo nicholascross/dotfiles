@@ -96,5 +96,7 @@ wk.add({
   { "<leader>fdv", require'telescope'.extensions.dap.variables, desc = "DAP Variables", icon="" },
   { "<leader>fdf", require'telescope'.extensions.dap.frames, desc = "DAP Frames", icon="" },
 
+  { '<leader>sb', "<cmd>lua require('custom.swift-build').build_swift_package()<CR>", desc = "Swift Package Build", icon="" },
+  { '<leader>sr', "<cmd>lua require('custom.swift-build').run_swift_package()<CR>", desc = "Swift Package Run", icon="" },
 })
 
