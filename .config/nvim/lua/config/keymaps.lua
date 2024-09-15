@@ -7,7 +7,7 @@ wk.add({
   { "<leader>ff", require('telescope.builtin').find_files, desc = "Find Files" },
   { "<leader>fg", require('telescope.builtin').live_grep, desc = "Live Grep", icon="󰑑" },
   { "<leader>fq", require("telescope").extensions.live_grep_args.live_grep_args, desc = "Live Grep (args)", icon="󰑑" },
-  { "<leader>fc", require("custom.live_grep_args_as_type").grep_word_under_cursor_same_type, desc = "Live Grep (same type)", icon="󰑑" },
+  { "<leader>fc", require("custom.live-grep-args-as-type").grep_word_under_cursor_same_type, desc = "Live Grep (same type)", icon="󰑑" },
   { "<leader>fr", require('telescope.builtin').registers, desc = "Registers", icon="󱘢" },
   { "<leader>fs", require('telescope.builtin').symbols, desc = "Symbols", icon="" },
   { "<leader>ft", require('telescope.builtin').treesitter, desc = "Tree Sitter", icon="" },
@@ -21,7 +21,7 @@ wk.add({
   { "<leader>u", function() require("telescope").extensions.undo.undo({ side_by_side = true }) end, desc = "Open undo history" },
 
   -- Tmux Stle (Pane)Window navigation
-  { "<leader>q", require("custom.window_navigator").show_window_numbers, desc = "Navigate to window" },
+  { "<leader>q", require("custom.window-navigator").show_window_numbers, desc = "Navigate to window" },
 
   -- Indentation
   { "<Tab>", ">>", mode = { "n" } },
@@ -79,7 +79,7 @@ wk.add({
 
   -- Debug
   { "<leader>d", group = "Debug", icon = "" },
-  { "<leader>ds", require("custom.swift_dap_launcher").find_executables, desc = "Launch", icon = "" },
+  { "<leader>ds", require("custom.swift-dap-launcher").find_executables, desc = "Launch", icon = "" },
   { "<leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint", icon = "" },
   { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>", desc = "Continue", icon = "" },
   { "<leader>di", "<Cmd>lua require'dap'.step_into()<CR>", desc = "Step Into", icon = "" },
