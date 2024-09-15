@@ -79,6 +79,7 @@ wk.add({
 
   -- Debug
   { "<leader>d", group = "Debug", icon = "" },
+  { "<leader>ds", require("custom.swift_dap_launcher").find_executables, desc = "Launch", icon = "" },
   { "<leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint", icon = "" },
   { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>", desc = "Continue", icon = "" },
   { "<leader>di", "<Cmd>lua require'dap'.step_into()<CR>", desc = "Step Into", icon = "" },
