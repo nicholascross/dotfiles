@@ -43,15 +43,59 @@ local function parse_executables(result)
   return executables
 end
 
+local function get_xctest_path()
+  local handle = io.popen("xcrun --find xctest")
+  local result = handle:read("*a")
+  handle:close()
+  result = result:gsub("%s+", "")
+  if result == '' then
+    return nil
+  else
+    return result
+  end
+end
+
 local function start_debugging(program, args)
-  local run_config = {
-    type = "codelldb",
-    request = 'launch',
-    name = "Launch executable",
-    program = program,
-    args = args,
-  }
-  require('dap').run(run_config)
+  if program:match("%.xctest/") then
+    -- The program is inside a test bundle
+    -- Extract the test bundle path
+    local test_bundle_path = program:match("(.-%.xctest)")
+    -- Get xctest path
+    local xctest_path = get_xctest_path()
+    if not xctest_path then
+      print("xctest not found.")
+      return
+    end
+
+    -- Build xctest arguments
+    local xctest_args = {}
+    if args and #args > 0 then
+      for _, arg in ipairs(args) do
+        table.insert(xctest_args, '-XCTest')
+        table.insert(xctest_args, arg)
+      end
+    end
+    table.insert(xctest_args, test_bundle_path)
+
+    local run_config = {
+      type = "codelldb",
+      request = 'launch',
+      name = "Launch xctest",
+      program = xctest_path,
+      args = xctest_args,
+    }
+    require('dap').run(run_config)
+  else
+    -- Regular executable
+    local run_config = {
+      type = "codelldb",
+      request = 'launch',
+      name = "Launch executable",
+      program = program,
+      args = args,
+    }
+    require('dap').run(run_config)
+  end
 end
 
 local function prompt_for_arguments(choice)
@@ -119,3 +163,4 @@ function M.find_executables()
 end
 
 return M
+
