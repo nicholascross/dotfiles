@@ -1,5 +1,3 @@
--- ~/.config/nvim/lua/window_navigator.lua
-
 local M = {}
 
 --[[
@@ -71,7 +69,6 @@ function M.show_window_numbers()
     return
   end
 
-  -- Handle special keys (e.g., ESC key)
   if input_code == 27 then  -- ESC key code
     cleanup()
     return
@@ -82,7 +79,6 @@ function M.show_window_numbers()
   if target_win then
     api.nvim_set_current_win(target_win)
   else
-    -- Optionally, show a message for invalid input
     api.nvim_echo({ { 'Invalid window number: ' .. input_char, 'ErrorMsg' } }, true, {})
   end
 
