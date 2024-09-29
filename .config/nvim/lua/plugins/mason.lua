@@ -8,7 +8,7 @@ return {
     require("mason").setup()
     require("mason-nvim-dap").setup({
       -- install dependency required for swift debugging
-      ensure_installed = { "codelldb" },
+      ensure_installed = { "codelldb", "lua_ls" },
       automatic_setup = true,
     })
   end,
