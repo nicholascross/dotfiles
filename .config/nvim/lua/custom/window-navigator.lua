@@ -28,23 +28,12 @@ function M.show_window_numbers()
     local row = math.floor(height / 2)
 
     -- Floating window options
-    local opts = {
-      style = 'minimal',
-      relative = 'win',
-      win = win,
-      width = win_width,
-      height = win_height,
-      row = row,
-      col = col,
-      focusable = false,
-      zindex = 100,
-      border = 'rounded',
-    }
+    local opts = { style = 'minimal', relative = 'win', win = win, width = win_width, height = win_height, row = row, col = col, focusable = false, zindex = 100, border = 'rounded' }
 
     -- Open the floating window
     local float_win = api.nvim_open_win(buf, false, opts)
     table.insert(float_wins, { win = float_win, buf = buf })
-    win_map[tostring(idx)] = win  -- Use string keys for consistency
+    win_map[tostring(idx)] = win -- Use string keys for consistency
   end
 
   api.nvim_command('redraw')
@@ -69,7 +58,7 @@ function M.show_window_numbers()
     return
   end
 
-  if input_code == 27 then  -- ESC key code
+  if input_code == 27 then -- ESC key code
     cleanup()
     return
   end

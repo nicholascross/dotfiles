@@ -1,7 +1,4 @@
-local user_paths = {
-  '.build/debug',
-  '~/Library/Developer/Xcode/DerivedData/*/Build/Products/Debug'
-}
+local user_paths = { '.build/debug', '~/Library/Developer/Xcode/DerivedData/*/Build/Products/Debug' }
 
 local function check_paths_exist(paths)
   local fn = vim.fn
@@ -77,23 +74,11 @@ local function start_debugging(program, args)
     end
     table.insert(xctest_args, test_bundle_path)
 
-    local run_config = {
-      type = "codelldb",
-      request = 'launch',
-      name = "Launch xctest",
-      program = xctest_path,
-      args = xctest_args,
-    }
+    local run_config = { type = "codelldb", request = 'launch', name = "Launch xctest", program = xctest_path, args = xctest_args }
     require('dap').run(run_config)
   else
     -- Regular executable
-    local run_config = {
-      type = "codelldb",
-      request = 'launch',
-      name = "Launch executable",
-      program = program,
-      args = args,
-    }
+    local run_config = { type = "codelldb", request = 'launch', name = "Launch executable", program = program, args = args }
     require('dap').run(run_config)
   end
 end
@@ -121,9 +106,7 @@ local function prompt_user_selection(executables)
 
   pickers.new({}, {
     prompt_title = 'Select Executable',
-    finder = finders.new_table {
-      results = executables
-    },
+    finder = finders.new_table { results = executables },
     sorter = conf.generic_sorter({}),
     attach_mappings = function(prompt_bufnr, map)
       actions.select_default:replace(function()
@@ -138,7 +121,7 @@ local function prompt_user_selection(executables)
         prompt_for_arguments(choice)
       end)
       return true
-    end,
+    end
   }):find()
 end
 

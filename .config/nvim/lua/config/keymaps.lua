@@ -2,23 +2,29 @@ local wk = require("which-key")
 
 wk.add({
   -- File browsing
-  { "<leader>f", group = "Telescope", icon="" },
+  { "<leader>f", group = "Telescope", icon = "" },
   { "<leader>fb", require('telescope.builtin').buffers, desc = "Buffers" },
   { "<leader>ff", require('telescope.builtin').find_files, desc = "Find Files" },
-  { "<leader>fg", require('telescope.builtin').live_grep, desc = "Live Grep", icon="󰑑" },
-  { "<leader>fq", require("telescope").extensions.live_grep_args.live_grep_args, desc = "Live Grep (args)", icon="󰑑" },
-  { "<leader>fc", require("custom.live-grep-args-as-type").grep_word_under_cursor_same_type, desc = "Live Grep (same type)", icon="󰑑" },
-  { "<leader>fr", require('telescope.builtin').registers, desc = "Registers", icon="󱘢" },
-  { "<leader>fs", require('telescope.builtin').symbols, desc = "Symbols", icon="" },
-  { "<leader>ft", require('telescope.builtin').treesitter, desc = "Tree Sitter", icon="" },
-  { "<leader>fh", require('telescope.builtin').help_tags, desc = "Help Tags", icon="󰋖" },
-  { "<leader>fa", require('telescope.builtin').builtin, desc = "Telescope", icon="" },
+  { "<leader>fg", require('telescope.builtin').live_grep, desc = "Live Grep", icon = "󰑑" },
+  { "<leader>fq", require("telescope").extensions.live_grep_args.live_grep_args, desc = "Live Grep (args)", icon = "󰑑" },
+  { "<leader>fc", require("custom.live-grep-args-as-type").grep_word_under_cursor_same_type, desc = "Live Grep (same type)", icon = "󰑑" },
+  { "<leader>fr", require('telescope.builtin').registers, desc = "Registers", icon = "󱘢" },
+  { "<leader>fs", require('telescope.builtin').symbols, desc = "Symbols", icon = "" },
+  { "<leader>ft", require('telescope.builtin').treesitter, desc = "Tree Sitter", icon = "" },
+  { "<leader>fh", require('telescope.builtin').help_tags, desc = "Help Tags", icon = "󰋖" },
+  { "<leader>fa", require('telescope.builtin').builtin, desc = "Telescope", icon = "" },
 
   -- File management
   { "<leader>-", require("oil").toggle_float, desc = "Open file browser" },
 
   -- Undo history
-  { "<leader>u", function() require("telescope").extensions.undo.undo({ side_by_side = true }) end, desc = "Open undo history" },
+  {
+    "<leader>u",
+    function()
+      require("telescope").extensions.undo.undo({ side_by_side = true })
+    end,
+    desc = "Open undo history"
+  },
 
   -- Tmux Stle (Pane)Window navigation
   { "<leader>q", require("custom.window-navigator").show_window_numbers, desc = "Navigate to window" },
@@ -29,14 +35,14 @@ wk.add({
   { "<Tab>", ">gv", mode = { "v" } },
   { "<S-Tab>", "<gv", mode = { "v" } },
 
-   -- Move to previous/next
+  -- Move to previous/next
   { "<A-,>", "<Cmd>BufferPrevious<CR>", desc = "Move to previous buffer" },
   { "<A-.>", "<Cmd>BufferNext<CR>", desc = "Move to next buffer" },
-  
+
   -- Re-order to previous/next
   { "<A-<>", "<Cmd>BufferMovePrevious<CR>", desc = "Re-order to previous buffer" },
   { "<A->>", "<Cmd>BufferMoveNext<CR>", desc = "Re-order to next buffer" },
-  
+
   -- Goto buffer in position...
   { "<A-1>", "<Cmd>BufferGoto 1<CR>", desc = "Goto buffer 1" },
   { "<A-2>", "<Cmd>BufferGoto 2<CR>", desc = "Goto buffer 2" },
@@ -48,16 +54,16 @@ wk.add({
   { "<A-8>", "<Cmd>BufferGoto 8<CR>", desc = "Goto buffer 8" },
   { "<A-9>", "<Cmd>BufferGoto 9<CR>", desc = "Goto buffer 9" },
   { "<A-0>", "<Cmd>BufferLast<CR>", desc = "Goto last buffer" },
-  
+
   -- Pin/unpin buffer
   { "<A-p>", "<Cmd>BufferPin<CR>", desc = "Pin/unpin buffer" },
-  
+
   -- Close buffer
   { "<A-c>", "<Cmd>BufferClose<CR>", desc = "Close buffer" },
-  
+
   -- Magic buffer-picking mode
   { "<C-p>", "<Cmd>BufferPick<CR>", desc = "Magic buffer-picking mode" },
-  
+
   -- Sort automatically by...
   { "<leader>bb", "<Cmd>BufferOrderByBufferNumber<CR>", desc = "Sort by buffer number" },
   { "<leader>bn", "<Cmd>BufferOrderByName<CR>", desc = "Sort by name" },
@@ -90,13 +96,13 @@ wk.add({
   { "<leader>du", "<Cmd>lua require'dapui'.toggle()<CR>", desc = "Toggle Dap UI", icon = "" },
 
   { "<leader>fd", group = "DAP", icon = "" },
-  { "<leader>fdc", require'telescope'.extensions.dap.commands, desc = "DAP Commands", icon="" },
-  { "<leader>fdf", require'telescope'.extensions.dap.configurations, desc = "DAP Configurations", icon="" },
-  { "<leader>fdb", require'telescope'.extensions.dap.list_breakpoints, desc = "List Breakpoints", icon="" },
-  { "<leader>fdv", require'telescope'.extensions.dap.variables, desc = "DAP Variables", icon="" },
-  { "<leader>fdf", require'telescope'.extensions.dap.frames, desc = "DAP Frames", icon="" },
+  { "<leader>fdc", require'telescope'.extensions.dap.commands, desc = "DAP Commands", icon = "" },
+  { "<leader>fdf", require'telescope'.extensions.dap.configurations, desc = "DAP Configurations", icon = "" },
+  { "<leader>fdb", require'telescope'.extensions.dap.list_breakpoints, desc = "List Breakpoints", icon = "" },
+  { "<leader>fdv", require'telescope'.extensions.dap.variables, desc = "DAP Variables", icon = "" },
+  { "<leader>fdf", require'telescope'.extensions.dap.frames, desc = "DAP Frames", icon = "" },
 
-  { '<leader>sb', "<cmd>lua require('custom.swift-build').build_swift_package()<CR>", desc = "Swift Package Build", icon="" },
-  { '<leader>sr', "<cmd>lua require('custom.swift-build').run_swift_package()<CR>", desc = "Swift Package Run", icon="" },
+  { '<leader>sb', "<cmd>lua require('custom.swift-build').build_swift_package()<CR>", desc = "Swift Package Build", icon = "" },
+  { '<leader>sr', "<cmd>lua require('custom.swift-build').run_swift_package()<CR>", desc = "Swift Package Run", icon = "" }
 })
 

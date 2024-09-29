@@ -3,21 +3,12 @@ return {
     "hrsh7th/nvim-cmp",
     version = false,
     event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-buffer",
-      "L3MON4D3/LuaSnip",
-    },
+    dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "hrsh7th/cmp-buffer", "L3MON4D3/LuaSnip" },
     config = function()
       local cmp = require('cmp')
       local luasnip = require('luasnip')
       local opts = {
-        sources = cmp.config.sources {
-          { name = "nvim_lsp", },
-          { name = "path", },
-          { name = "buffer", },
-        },
+        sources = cmp.config.sources { { name = "nvim_lsp" }, { name = "path" }, { name = "buffer" } },
         mapping = cmp.mapping.preset.insert({
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
           ["<tab>"] = cmp.mapping(function(original)
@@ -32,7 +23,7 @@ return {
               print("fallback")
               original()
             end
-          end, {"i", "s"}),
+          end, { "i", "s" }),
           ["<S-tab>"] = cmp.mapping(function(original)
             if cmp.visible() then
               cmp.select_prev_item()
@@ -41,19 +32,19 @@ return {
             else
               original()
             end
-          end, {"i", "s"}),
+          end, { "i", "s" })
 
         }),
         snippets = {
           expand = function(args)
             luasnip.lsp_expand(args)
-          end,
+          end
         }
       }
       cmp.setup(opts)
-    end,
+    end
   },
   { "hrsh7th/cmp-nvim-lsp", lazy = true },
   { "hrsh7th/cmp-path", lazy = true },
-  { "hrsh7th/cmp-buffer", lazy = true },
+  { "hrsh7th/cmp-buffer", lazy = true }
 }

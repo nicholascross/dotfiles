@@ -5,7 +5,7 @@ return {
     config = function(opts)
       local luasnip = require('luasnip')
       luasnip.setup(opts)
-      require('luasnip.loaders.from_snipmate').load({ paths = "./snippets"})
-    end,
+      require('luasnip.loaders.from_snipmate').load({ paths = "./snippets" })
+    end
   }
 }

@@ -1,8 +1,6 @@
-return { 
+return {
   "mfussenegger/nvim-dap",
-  dependencies = {
-    "rcarriga/nvim-dap-ui"
-  },
+  dependencies = { "rcarriga/nvim-dap-ui" },
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
@@ -18,12 +16,14 @@ return {
       port = "${port}",
       executable = {
         command = "codelldb",
-        args = { 
-            "--port", "${port}",
-            -- enables swift type system without which expressions do not resolve
-            "--liblldb", "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB"
-        },
-      },
+        args = {
+          "--port",
+          "${port}",
+          -- enables swift type system without which expressions do not resolve
+          "--liblldb",
+          "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB"
+        }
+      }
     }
 
     dap.configurations.swift = {
@@ -37,8 +37,8 @@ return {
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
-        args = {},
-      },
+        args = {}
+      }
     }
 
     vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
