@@ -103,6 +103,7 @@ wk.add({
   { "<leader>fdf", require'telescope'.extensions.dap.frames, desc = "DAP Frames", icon = "" },
 
   { '<leader>sb', "<cmd>lua require('custom.swift.swift-build').build_swift_package()<CR>", desc = "Swift Package Build", icon = "" },
-  { '<leader>sr', "<cmd>lua require('custom.swift.swift-build').run_swift_package()<CR>", desc = "Swift Package Run", icon = "" }
+  { '<leader>sr', "<cmd>lua require('custom.swift.swift-build').run_swift_package()<CR>", desc = "Swift Package Run", icon = "" },
+  { '<leader>st', "<cmd>lua require('custom.swift.swift-build').test_swift_package()<CR>", desc = "Swift Package Run", icon = "" }
 })
 
