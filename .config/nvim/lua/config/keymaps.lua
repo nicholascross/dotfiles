@@ -85,7 +85,7 @@ wk.add({
 
   -- Debug
   { "<leader>d", group = "Debug", icon = "" },
-  { "<leader>ds", require("custom.swift-dap-launcher").find_executables, desc = "Launch", icon = "" },
+  { "<leader>ds", require("custom.swift.swift-dap-launcher").find_executables, desc = "Launch", icon = "" },
   { "<leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint", icon = "" },
   { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>", desc = "Continue", icon = "" },
   { "<leader>di", "<Cmd>lua require'dap'.step_into()<CR>", desc = "Step Into", icon = "" },
@@ -102,7 +102,7 @@ wk.add({
   { "<leader>fdv", require'telescope'.extensions.dap.variables, desc = "DAP Variables", icon = "" },
   { "<leader>fdf", require'telescope'.extensions.dap.frames, desc = "DAP Frames", icon = "" },
 
-  { '<leader>sb', "<cmd>lua require('custom.swift-build').build_swift_package()<CR>", desc = "Swift Package Build", icon = "" },
-  { '<leader>sr', "<cmd>lua require('custom.swift-build').run_swift_package()<CR>", desc = "Swift Package Run", icon = "" }
+  { '<leader>sb', "<cmd>lua require('custom.swift.swift-build').build_swift_package()<CR>", desc = "Swift Package Build", icon = "" },
+  { '<leader>sr', "<cmd>lua require('custom.swift.swift-build').run_swift_package()<CR>", desc = "Swift Package Run", icon = "" }
 })
 

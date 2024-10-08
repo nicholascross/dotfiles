@@ -5,6 +5,6 @@ vim.api.nvim_create_autocmd('BufRead', {
   pattern = '*.swiftinterface',
   callback = function()
     -- Disable diagnostic since this is readonly
-    vim.diagnostic.disable(0)
+    vim.diagnostic.enable(false)
   end
 })

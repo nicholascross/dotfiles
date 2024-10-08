@@ -13,13 +13,13 @@ local function select_product(prompt, callback)
 
   local products = swift_package.products(package_path)
   if #products == 0 then
-    vim.notify("No products found", vim.log.levels.ERROR)
+    vim.notify("No products found", vim.log.levels.WARN)
     return
   end
 
   vim.ui.select(products, { prompt = prompt }, function(selected)
     if not selected then
-      vim.notify("Selection cancelled", vim.log.levels.WARN)
+      vim.notify("Selection cancelled", vim.log.levels.DEBUG)
       return
     end
     callback(package_path, selected)
