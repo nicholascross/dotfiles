@@ -13,15 +13,19 @@ function M.show_window_numbers()
 
   -- Display window numbers
   for idx, win in ipairs(wins) do
-    -- Create a scratch buffer
+    local width = api.nvim_win_get_width(win)
+    local height = api.nvim_win_get_height(win)
+
+    if height < 2 then
+      goto continue
+    end
+
     local buf = api.nvim_create_buf(false, true)
     -- Prepare window number string
     local number_str = ' ' .. tostring(idx) .. ' '
     api.nvim_buf_set_lines(buf, 0, -1, false, { number_str })
 
     -- Calculate the position to center the floating window
-    local width = api.nvim_win_get_width(win)
-    local height = api.nvim_win_get_height(win)
     local win_width = fn.strdisplaywidth(number_str)
     local win_height = 1
     local col = math.floor((width - win_width) / 2)
@@ -34,6 +38,8 @@ function M.show_window_numbers()
     local float_win = api.nvim_open_win(buf, false, opts)
     table.insert(float_wins, { win = float_win, buf = buf })
     win_map[tostring(idx)] = win -- Use string keys for consistency
+
+    ::continue::
   end
 
   api.nvim_command('redraw')
