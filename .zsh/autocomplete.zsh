@@ -1,5 +1,8 @@
 # Auto complete
 
+# Case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 zstyle ":history-search-multi-word" highlight-color "fg=yellow,bold" # Color in which to highlight matched, searched text (default bg=17 on 256-color terminals)
 zstyle ":history-search-multi-word" page-size "8"                    # Number of entries to show (default is $LINES/3)
 zstyle ":plugin:history-search-multi-word" active "underline"        # Effect on active history entry. Try: standout, bold, bg=blue (default underline)
