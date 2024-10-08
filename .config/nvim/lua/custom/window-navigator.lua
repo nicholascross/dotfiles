@@ -66,7 +66,11 @@ function M.show_window_numbers()
   local input_char = fn.nr2char(input_code)
   local target_win = win_map[input_char]
   if target_win then
-    api.nvim_set_current_win(target_win)
+    local success, err = pcall(vim.api.nvim_set_current_win, target_win)
+
+    if not success then
+      vim.notify("Failed to set the current window: " .. err, vim.log.levels.ERROR)
+    end
   else
     api.nvim_echo({ { 'Invalid window number: ' .. input_char, 'ErrorMsg' } }, true, {})
   end
