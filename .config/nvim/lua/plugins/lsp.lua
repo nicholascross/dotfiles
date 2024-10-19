@@ -3,7 +3,10 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require('lspconfig')
-      lspconfig.sourcekit.setup { capabilities = { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } } }
+      lspconfig.sourcekit.setup {
+        capabilities = { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } },
+        offset_encoding = "utf-8"
+      }
 
       lspconfig.lua_ls.setup {
         settings = {
