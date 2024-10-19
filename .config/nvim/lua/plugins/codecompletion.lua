@@ -10,6 +10,7 @@ return {
       local opts = {
         sources = cmp.config.sources { { name = "nvim_lsp" }, { name = "path" }, { name = "buffer" } },
         mapping = cmp.mapping.preset.insert({
+          ['<C-Space>'] = cmp.mapping.complete(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
           ["<tab>"] = cmp.mapping(function(original)
             print("tab pressed")
