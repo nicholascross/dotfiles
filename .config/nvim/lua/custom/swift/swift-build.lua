@@ -40,15 +40,22 @@ function M.run_swift_package()
   end)
 end
 
-function M.test_swift_package()
+function M.test_swift_package(filter)
   local package_path = swift_package.path()
 
   if not package_path then
     vim.notify("Not a Swift package", vim.log.levels.ERROR)
     return
   end
-  local cmd = "cd " .. vim.fn.shellescape(package_path) .. " && swift test | xcbeautify"
+
+  local testCMD = filter and "swift test --filter " .. filter or "swift test"
+  local cmd = "cd " .. vim.fn.shellescape(package_path) .. " && " .. testCMD .. " | xcbeautify"
   terminal.open(cmd, "swift test")
+end
+
+function M.test_swift_package_test()
+  local word_under_cursor = vim.fn.expand("<cword>")
+  return M.test_swift_package(word_under_cursor)
 end
 
 return M

@@ -104,7 +104,8 @@ wk.add({
 
   { '<leader>sb', "<cmd>lua require('custom.swift.swift-build').build_swift_package()<CR>", desc = "Swift Package Build", icon = "" },
   { '<leader>sr', "<cmd>lua require('custom.swift.swift-build').run_swift_package()<CR>", desc = "Swift Package Run", icon = "" },
-  { '<leader>st', "<cmd>lua require('custom.swift.swift-build').test_swift_package()<CR>", desc = "Swift Package Run", icon = "" }
+  { '<leader>st', "<cmd>lua require('custom.swift.swift-build').test_swift_package()<CR>", desc = "Swift Package Run", icon = "" },
+  { '<leader>sc', "<cmd>lua require('custom.swift.swift-build').test_swift_package_test()<CR>", desc = "Swift Package Run", icon = "" },
 
   -- Terminal model
   { "<S-Esc>", "<C-\\><C-n>", mode = "t", desc = "Exit Terminal Mode" },
