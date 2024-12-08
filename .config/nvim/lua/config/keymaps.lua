@@ -71,7 +71,7 @@ wk.add({
   { "<leader>bl", "<Cmd>BufferOrderByLanguage<CR>", desc = "Sort by language" },
   { "<leader>bw", "<Cmd>BufferOrderByWindowNumber<CR>", desc = "Sort by window number" },
 
-  { "<leader>y", ":lua CopyToClipboard()<CR>", desc = "Yank to system clipboard", mode = { "v" } },
+  { "<leader>y", require("custom.utils.pbcopy").copy_to_clipboard, desc = "Yank to system clipboard", mode = { "v" } },
 
   { "K", vim.lsp.buf.hover, desc = "LSP hover info" },
   { "[g", vim.diagnostic.goto_prev, desc = "Go to previous diagnostic" },
