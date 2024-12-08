@@ -1,5 +1,6 @@
 local terminal = require('custom/utils/terminal')
 local swift_package = require('custom/swift/swift-package')
+local swift_test_summary = require('custom/swift/swift-test-summary')
 
 local M = {}
 
@@ -51,6 +52,9 @@ function M.test_swift_package(filter)
   local testCMD = filter and "swift test --filter " .. filter or "swift test"
   local cmd = "cd " .. vim.fn.shellescape(package_path) .. " && " .. testCMD .. " | xcbeautify"
   terminal.open(cmd, "swift test")
+
+  local term_buf = vim.api.nvim_get_current_buf()
+  swift_test_summary.attach_test_summary_handler(term_buf)
 end
 
 function M.test_swift_package_test()
