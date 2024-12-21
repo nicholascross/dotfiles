@@ -8,6 +8,11 @@ return {
         offset_encoding = "utf-8"
       }
 
+      lspconfig.bashls.setup {
+        cmd = { "bash-language-server", "start" },
+        filetypes = { "sh", "zsh" }
+      }
+
       lspconfig.lua_ls.setup {
         settings = {
           Lua = {

@@ -26,6 +26,10 @@ brew "tree-sitter"
 brew "luajit"
 brew "luarocks"
 
+# Shell
+brew "bash-language-server"
+brew "shellcheck"
+
 # Node
 brew "nvm"
 
