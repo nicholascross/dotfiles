@@ -82,6 +82,7 @@ wk.add({
   { "gn", vim.lsp.buf.rename, desc = "LSP rename" },
   { "gr", vim.lsp.buf.references, desc = "LSP list references" },
   { "gs", vim.lsp.buf.signature_help, desc = "LSP signature help" },
+  { "gF", desc = "Go to file and line number" },
 
   -- Debug
   { "<leader>d", group = "Debug", icon = "" },
