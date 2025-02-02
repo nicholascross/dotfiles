@@ -16,6 +16,11 @@ return {
         --model = "qwen2.5-coder:14b",
         --model = "deepseek-r1:14b",
       },
+      custom_openai = {
+        __inherited_from = "openai",    -- Inherit default functionality from the OpenAI provider
+        api_key_name = { "security", "find-generic-password", "-s", "avante", "-a", "openai", "-w" },
+        model = "gpt-4o-mini",
+      },
     },
   },
   build = "make",
