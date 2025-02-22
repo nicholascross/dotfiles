@@ -27,7 +27,8 @@ wk.add({
   },
 
   -- Tmux Stle (Pane)Window navigation
-  { "<leader>q", require("custom.window-navigator").show_window_numbers, desc = "Navigate to window" },
+  -- { "<leader>q", require("custom.window-navigator").show_window_numbers, desc = "Navigate to window" },
+  { "<leader>q", require("displace.navigator").show_window_numbers, desc = "Navigate to window" },
 
   -- Indentation
   { "<Tab>", ">>", mode = { "n" } },
