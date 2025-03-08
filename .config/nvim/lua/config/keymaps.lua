@@ -108,6 +108,7 @@ wk.add({
   { '<leader>sr', "<cmd>lua require('custom.swift.swift-build').run_swift_package()<CR>", desc = "Swift Package Run", icon = "" },
   { '<leader>st', "<cmd>lua require('custom.swift.swift-build').test_swift_package()<CR>", desc = "Swift Package Run", icon = "" },
   { '<leader>sc', "<cmd>lua require('custom.swift.swift-build').test_swift_package_test()<CR>", desc = "Swift Package Run", icon = "" },
+  { '<leader>sf', "<cmd>FormatWrite<CR>", desc = "Format the current file", icon = "" },
 
   -- Terminal model
   { "<S-Esc>", "<C-\\><C-n>", mode = "t", desc = "Exit Terminal Mode" },
