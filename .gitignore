@@ -42,3 +42,17 @@
 # Files not applying to all systems
 .gitconfig
 .bash_history
+.aider*
+.bundle/
+.ollama/
+#.config/gh-copilot/
+#.config/gh/
+#.config/github-copilot/
+.config/gollama/
+.config/promptly/.gitignore
+.config/tmuxinator
+.config/github-copilot
+.config/gh-copilot
+.config/gh
+.python_history
+.wget-hsts
