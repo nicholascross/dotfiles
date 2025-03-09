@@ -5,7 +5,7 @@ return {
   version = false, -- Set this to "*" to always pull the latest release version, or false to update to the latest code changes.
   opts = {
     -- Set the default provider to "ollama"
-    provider = "ollama",
+    provider = "custom_openai",
     vendors = {
       ollama = {
         __inherited_from = "openai",    -- Inherit default functionality from the OpenAI provider
@@ -20,6 +20,11 @@ return {
         __inherited_from = "openai",    -- Inherit default functionality from the OpenAI provider
         api_key_name = { "security", "find-generic-password", "-s", "avante", "-a", "openai", "-w" },
         model = "gpt-4o-mini",
+      },
+      promptly = {
+        __inherited_from = "openai",    -- Inherit default functionality from the OpenAI provider
+        api_key_name = "",
+        endpoint = "http://127.0.0.1:8080",
       },
     },
   },
