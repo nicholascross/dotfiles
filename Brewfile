@@ -52,3 +52,6 @@ brew "noahgorstein/tap/jqp"
 # Markdown
 
 brew "glow"
+
+# Python
+brew "uv"
