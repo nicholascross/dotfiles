@@ -55,3 +55,9 @@ brew "glow"
 
 # Python
 brew "uv"
+
+# AI
+tap "nicholascross/ch.sh"
+brew "ch"
+tap "nicholascross/promptly"
+brew "promptly"
