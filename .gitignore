@@ -56,3 +56,4 @@
 .config/gh
 .python_history
 .wget-hsts
+.zcompcache
