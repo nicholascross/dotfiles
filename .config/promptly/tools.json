@@ -270,7 +270,7 @@
       "name": "FixSwift",
       "description": "Attempt to fix any build or test issues in a Swift package",
       "executable": "promptly",
-      "argumentTemplate": [["--canned", "build-swift", "--message", "user:Please fix any build or test issues in this Swift package.", "--filter-tools", "BuildSwift", "--filter-tools", "TestSwift", "--filter-tools", "ShowFileContents", "--filter-tools", "WriteToFile", "--filter-tools", "SearchAndReplace", "--filter-tools", "FindFiles", "--filter-tools", "ListFiles", "--filter-tools", "Grep", "--filter-tools", "RipGrep", "--filter-tools", "LineCount", "--filter-tools", "TouchFile", "--filter-tools", "MakeDirectory", "--filter-tools", "RemoveFiles", "--filter-tools", "MoveFiles", "--filter-tools", "CopyFiles"]],
+      "argumentTemplate": [["--canned", "build-swift", "--message", "user:Please fix any build or test issues in this Swift package.", "--exclude-tools", "FixSwift"]],
       "parameters": {
         "type": "object",
         "properties": {},
