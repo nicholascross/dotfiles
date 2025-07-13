@@ -75,6 +75,22 @@
       }
     },
     {
+      "name": "RipGrepWithGlob",
+      "description": "Search file contents for a regex pattern only in files matching given glob, using ripgrep.",
+      "executable": "rg",
+      "argumentTemplate": [["-n", "{{pattern}}", "--glob", "{{glob}}", "{(path)}"]],
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "pattern": { "type": "string", "description": "Regex pattern to search for" },
+          "glob": { "type": "string", "description": "Glob pattern for file filtering (ripgrep --glob argument, including any ! if excluding). User specifies complete glob pattern." },
+          "path": { "type": "string", "description": "Path to search in" }
+        },
+        "required": ["pattern", "glob", "path"],
+        "description": "Parameters for ripgrep command with --glob support. glob should be formatted for ripgrep, with ! as needed."
+      }
+    },
+    {
       "name": "SearchAndReplace",
       "description": "Perform stream editing on a file",
       "executable": "sed",
@@ -265,3 +281,4 @@
     }
   ]
 }
+
