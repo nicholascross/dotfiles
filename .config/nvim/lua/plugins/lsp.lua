@@ -2,18 +2,17 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require('lspconfig')
-      lspconfig.sourcekit.setup {
+      vim.lsp.config("sourcekit", {
         capabilities = { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } },
         offset_encoding = "utf-8"
-      }
+      })
 
-      lspconfig.bashls.setup {
+      vim.lsp.config("bashls", {
         cmd = { "bash-language-server", "start" },
         filetypes = { "sh", "zsh" }
-      }
+      })
 
-      lspconfig.lua_ls.setup {
+      vim.lsp.config("lua_ls", {
         settings = {
           Lua = {
             runtime = {
@@ -37,13 +36,21 @@ return {
               enable = false
             }
           }
-        }
-      }
+        },
+	      })
 
-      vim.api.nvim_create_autocmd('LspAttach', {
-        desc = "LSP Actions",
-        callback = function(args)
-          -- vim.keymap.set("n", "K", vim.lsp.buf.hover, {noremap = true, silent = true})
+	      vim.lsp.enable("sourcekit")
+	      vim.lsp.enable("bashls")
+	      vim.lsp.enable("lua_ls")
+	      local ok, err = pcall(vim.lsp.enable, "copilot")
+	      if not ok then
+	        vim.notify(("copilot LSP unavailable: %s"):format(err), vim.log.levels.WARN)
+	      end
+
+	      vim.api.nvim_create_autocmd('LspAttach', {
+	        desc = "LSP Actions",
+	        callback = function(args)
+	          -- vim.keymap.set("n", "K", vim.lsp.buf.hover, {noremap = true, silent = true})
           -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, {noremap = true, silent = true})
 
         end
