@@ -11,8 +11,31 @@ return {
   end,
   config = function()
     require("copilot").setup({
-      suggestion = { enabled = false },
+      suggestion = {
+        enabled = true,
+        auto_trigger = false,
+        keymap = {
+          accept = "<M-l>",
+          next = "<M-j>",
+          prev = "<M-k>",
+          dismiss = "<M-h>",
+        },
+      },
       panel = { enabled = false },
+    })
+
+    vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = { "*.str", "*.std" },
+      callback = function(args)
+        vim.b[args.buf].copilot_suggestion_auto_trigger = true
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("BufLeave", {
+      pattern = { "*.str", "*.std" },
+      callback = function(args)
+        vim.b[args.buf].copilot_suggestion_auto_trigger = false
+      end,
     })
   end,
 }
