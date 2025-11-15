@@ -105,13 +105,94 @@ wk.add({
   { "<leader>fdv", require'telescope'.extensions.dap.variables, desc = "DAP Variables", icon = "" },
   { "<leader>fdf", require'telescope'.extensions.dap.frames, desc = "DAP Frames", icon = "" },
 
-  { '<leader>sb', "<cmd>lua require('custom.swift.swift-build').build_swift_package()<CR>", desc = "Swift Package Build", icon = "" },
-  { '<leader>sr', "<cmd>lua require('custom.swift.swift-build').run_swift_package()<CR>", desc = "Swift Package Run", icon = "" },
-  { '<leader>st', "<cmd>lua require('custom.swift.swift-build').test_swift_package()<CR>", desc = "Swift Package Run", icon = "" },
-  { '<leader>sc', "<cmd>lua require('custom.swift.swift-build').test_swift_package_test()<CR>", desc = "Swift Package Run", icon = "" },
-  { '<leader>sf', "<cmd>FormatWrite<CR>", desc = "Format the current file", icon = "" },
-
   -- Terminal model
   { "<S-Esc>", "<C-\\><C-n>", mode = "t", desc = "Exit Terminal Mode" },
 })
 
+local function register_buffer_keymaps(buf, mappings)
+  for _, mapping in ipairs(mappings) do
+    mapping.buffer = buf
+    wk.add({ mapping })
+  end
+end
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.str", "*.std" },
+  callback = function(args)
+    local ok, strudel = pcall(require, "strudel")
+    if not ok then
+      return
+    end
+
+    register_buffer_keymaps(args.buf, {
+      { "<leader>sl", strudel.launch, desc = "Strudel Launch" },
+      { "<leader>sp", strudel.toggle, desc = "Strudel Play/Stop" },
+      { "<leader>se", strudel.execute, desc = "Strudel Execute buffer" },
+      { "<leader>sq", strudel.quit, desc = "Strudel Quit" },
+    })
+  end,
+})
+
+local function register_swift_keymaps(buf)
+  register_buffer_keymaps(buf, {
+    {
+      "<leader>sb",
+      function()
+        require("custom.swift.swift-build").build_swift_package()
+      end,
+      desc = "Swift Package Build",
+      icon = "",
+    },
+    {
+      "<leader>sr",
+      function()
+        require("custom.swift.swift-build").run_swift_package()
+      end,
+      desc = "Swift Package Run",
+      icon = "",
+    },
+    {
+      "<leader>st",
+      function()
+        require("custom.swift.swift-build").test_swift_package()
+      end,
+      desc = "Swift Package Test",
+      icon = "",
+    },
+    {
+      "<leader>sc",
+      function()
+        require("custom.swift.swift-build").test_swift_package_test()
+      end,
+      desc = "Swift Package Single Test",
+      icon = "",
+    },
+    { "<leader>sf", "<cmd>FormatWrite<CR>", desc = "Swift Format File", icon = "" },
+  })
+end
+
+local function is_swift_related_buffer(buf)
+  if vim.b[buf].swift_related then
+    return true
+  end
+
+  if vim.bo[buf].filetype == "swift" then
+    return true
+  end
+
+  local name = vim.api.nvim_buf_get_name(buf)
+  if name == nil or name == "" then
+    return false
+  end
+
+  local short_name = vim.fn.fnamemodify(name, ":t")
+  return short_name:match("^swift%s") ~= nil or short_name:match("^swift$") ~= nil
+end
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function(args)
+    if is_swift_related_buffer(args.buf) then
+      register_swift_keymaps(args.buf)
+    end
+  end,
+})

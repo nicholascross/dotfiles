@@ -30,14 +30,22 @@ end
 function M.build_swift_package()
   select_product("Select Product to Build:", function(package_path, product)
     local cmd = "cd " .. vim.fn.shellescape(package_path) .. " && swift build --product " .. vim.fn.shellescape(product)
-    terminal.open(cmd, "swift build " .. product)
+    local term_buf = terminal.open(cmd, "swift build " .. product)
+    if term_buf then
+      vim.b[term_buf].swift_related = true
+      vim.api.nvim_exec_autocmds("BufEnter", { buffer = term_buf })
+    end
   end)
 end
 
 function M.run_swift_package()
   select_product("Select Product to Run:", function(package_path, product)
     local cmd = "cd " .. vim.fn.shellescape(package_path) .. " && swift run " .. vim.fn.shellescape(product)
-    terminal.open(cmd, "swift run " .. product)
+    local term_buf = terminal.open(cmd, "swift run " .. product)
+    if term_buf then
+      vim.b[term_buf].swift_related = true
+      vim.api.nvim_exec_autocmds("BufEnter", { buffer = term_buf })
+    end
   end)
 end
 
@@ -51,9 +59,11 @@ function M.test_swift_package(filter)
 
   local testCMD = filter and "swift test --filter " .. filter or "swift test"
   local cmd = "cd " .. vim.fn.shellescape(package_path) .. " && " .. testCMD .. " | xcbeautify"
-  terminal.open(cmd, "swift test")
-
-  local term_buf = vim.api.nvim_get_current_buf()
+  local term_buf = terminal.open(cmd, "swift test")
+  if term_buf then
+    vim.b[term_buf].swift_related = true
+    vim.api.nvim_exec_autocmds("BufEnter", { buffer = term_buf })
+  end
   swift_test_summary.attach_test_summary_handler(term_buf)
 end
 
@@ -63,4 +73,3 @@ function M.test_swift_package_test()
 end
 
 return M
-

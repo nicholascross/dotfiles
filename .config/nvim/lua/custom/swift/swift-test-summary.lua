@@ -26,6 +26,8 @@ local function create_summary_buffer(original_buf, original_lines, tests, total_
   local new_buf = vim.api.nvim_create_buf(true, false)
   vim.bo[new_buf].buftype = "nofile"
   vim.bo[new_buf].bufhidden = "hide"
+  vim.b[new_buf].swift_related = true
+  vim.api.nvim_exec_autocmds("BufEnter", { buffer = new_buf })
 
   local original_name = vim.api.nvim_buf_get_name(original_buf)
   if original_name and original_name ~= "" then
